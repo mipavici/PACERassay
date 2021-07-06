@@ -1,5 +1,5 @@
 /*This script extract pixel information from
-stipe images in folders*/
+strip images in folders*/
 
 // Core function
 function action(input, output, filename) {
@@ -9,12 +9,12 @@ function action(input, output, filename) {
 	run("HSB Stack");
 // Get Saturation channel
 	setSlice(2);
-// Set threshold to select stripes
+// Set threshold to select strips
 	setThreshold(80, 255);
-// Select stripes and ignore small particles
+// Select strips and ignore small particles
 	run("Analyze Particles...", "size=1000-Infinity add slice");
 	n = roiManager("count");
-// Loop to select stripes and save their pixel values
+// Loop to select strips and save their pixel values
 	for (i=0; i<n; i++) {
 			      roiManager("select", i);
 				  run("Save XY Coordinates...", "save=["+output+filename+"_"+i+".csv]");
