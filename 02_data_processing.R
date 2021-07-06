@@ -18,7 +18,7 @@ temp=list.files(pattern = "*.csv")
 
 datalist=lapply(setNames(temp,make.names(gsub("*.csv$","",temp))),read.csv)
 
-#Now we have a list of 50 objects with data for one stip.
+
 #Bind all the objects in the list in one big data frame.
 #.id creates an extra column with the object name.
 #In our case this create a column called "id" with file names.
